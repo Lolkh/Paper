@@ -95,6 +95,14 @@ KNOWN_TOKES = [
     {"token":"=","ID":"SYMBOL_EQUALS"},
     {"token":"-","ID":"SYMBOL_MINUS"},
     {"token":"_","ID":"SYMBOL_UNDERSCORE"},
+    # LAZY STUFF HERE
+    {"token":" ","ID":"SYMBOL_SPACE"},
+]
+
+# CENTURY!
+
+TOKENS = [
+    {"token":"type","ID":"TOKEN_TYPE","type":"BUILTIN_FUNCTION"}
 ]
 
 def find_symbol(symbol):
@@ -102,12 +110,26 @@ def find_symbol(symbol):
         if i["token"] == symbol:
             return i
 
-# CENTURY!
+def find_token_if_any(symbols):
+    GENERATED = ""
+    for i in symbols:
+        GENERATED += i["token"]
+
+    print(GENERATED)
+    for i in TOKENS:
+        print(i["token"]==GENERATED)
+        if i["token"] == GENERATED:
+            print(i)
+            return i
 
 class Lexer:
     def __init__(self):
         self.VERSION = "v0.0.1"
 
     def lex_line(self,line):
+        symbols = []
         for i in line:
             symbol = find_symbol(i)
+            symbols.append(symbol)
+
+        return find_token_if_any(symbols)
