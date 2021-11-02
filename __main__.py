@@ -1,5 +1,7 @@
+from utils.exec import _execute
 from utils.lexer import *
 
 lex = Lexer()
 while True:
-    print(lex.lex_line(input('> ')))
+    inp = input('> ')
+    _execute(lex.lex_line(inp),inp)
