@@ -1,7 +1,8 @@
 # Lexer.py
 
 TOKENS = {
-    "type":{"token":"type","ID":"TOKEN_TYPE","type":"BUILTIN_FUNCTION"}
+    "type":{"token":"type","ID":"TOKEN_TYPE","type":"BUILTIN_KEYWORD"},
+    "quit":{"token":"quit","ID":"TOKEN_QUIT","type":"BUILTIN_KEYWORD"}
 }
 
 def find_tokens_if_any(symbols):
